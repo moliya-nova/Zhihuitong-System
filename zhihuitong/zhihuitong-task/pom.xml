@@ -2,48 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>zhihuitong</artifactId>
         <groupId>com.zhihuitong</groupId>
+        <artifactId>zhihuitong</artifactId>
         <version>3.9.2</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zhihuitong-quartz</artifactId>
-
-    <description>
-        quartz定时任务
-    </description>
+    <artifactId>zhihuitong-task</artifactId>
 
     <dependencies>
-
-        <!-- 定时任务 -->
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-        </dependency>
-
-        <!-- 通用工具-->
         <dependency>
             <groupId>com.zhihuitong</groupId>
             <artifactId>zhihuitong-common</artifactId>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.zhihuitong</groupId>-->
+<!--            <artifactId>zhihuitong-quartz</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.zhihuitong</groupId>
-            <artifactId>zhihuitong-platform</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zhihuitong</groupId>
-            <artifactId>zhihuitong-task</artifactId>
-        </dependency>
-
     </dependencies>
+
+    <properties>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>
