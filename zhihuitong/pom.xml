@@ -232,6 +232,7 @@
         <module>zhihuitong-oss</module>
         <module>zhihuitong-agent</module>
         <module>zhihuitong-knowledge</module>
+        <module>zhihuitong-task</module>
     </modules>
     <packaging>pom</packaging>
 
