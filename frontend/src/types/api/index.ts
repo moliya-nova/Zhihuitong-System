@@ -39,3 +39,9 @@ export * from "./template/template";
 
 // 学生管理模块
 export * from "./system/student";
+
+// 成绩管理模块
+export * from "./system/score";
+
+// 任务待办模块
+export * from "./task/task";

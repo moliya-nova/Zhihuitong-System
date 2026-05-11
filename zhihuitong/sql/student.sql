@@ -71,7 +71,7 @@ SET @student_parent_id = (SELECT menu_id FROM sys_menu WHERE menu_name = '学生
 
 -- 二级菜单：学生信息
 INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
-VALUES ('学生信息', @student_parent_id, 1, 'index', 'student/index', '', 'Student', 1, 0, 'C', '0', '0', 'student:info:list', 'user', 'admin', NOW(), '学生信息菜单');
+VALUES ('学生信息', @student_parent_id, 1, 'index', 'student/index', '', '', 1, 0, 'C', '0', '0', 'student:info:list', 'user', 'admin', NOW(), '学生信息菜单');
 
 -- 按钮权限
 SET @info_menu_id = LAST_INSERT_ID();
@@ -90,3 +90,28 @@ VALUES ('学生信息删除', @info_menu_id, 4, '#', '', '', '', 1, 0, 'F', '0',
 
 INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
 VALUES ('学生信息导出', @info_menu_id, 5, '#', '', '', '', 1, 0, 'F', '0', '0', 'student:info:export', '#', 'admin', NOW(), '');
+
+-- ----------------------------
+-- 成绩管理菜单
+-- ----------------------------
+-- 二级菜单：成绩管理
+INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
+VALUES ('成绩管理', @student_parent_id, 2, 'score', 'student/score/index', '', '', 1, 0, 'C', '0', '0', 'student:score:list', 'score', 'admin', NOW(), '成绩管理菜单');
+
+SET @score_menu_id = LAST_INSERT_ID();
+
+-- 按钮权限
+INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
+VALUES ('成绩查询', @score_menu_id, 1, '#', '', '', '', 1, 0, 'F', '0', '0', 'student:score:query', '#', 'admin', NOW(), '');
+
+INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
+VALUES ('成绩新增', @score_menu_id, 2, '#', '', '', '', 1, 0, 'F', '0', '0', 'student:score:add', '#', 'admin', NOW(), '');
+
+INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
+VALUES ('成绩修改', @score_menu_id, 3, '#', '', '', '', 1, 0, 'F', '0', '0', 'student:score:edit', '#', 'admin', NOW(), '');
+
+INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
+VALUES ('成绩删除', @score_menu_id, 4, '#', '', '', '', 1, 0, 'F', '0', '0', 'student:score:remove', '#', 'admin', NOW(), '');
+
+INSERT INTO sys_menu (menu_name, parent_id, order_num, path, component, query, route_name, is_frame, is_cache, menu_type, visible, status, perms, icon, create_by, create_time, remark)
+VALUES ('成绩导出', @score_menu_id, 5, '#', '', '', '', 1, 0, 'F', '0', '0', 'student:score:export', '#', 'admin', NOW(), '');
