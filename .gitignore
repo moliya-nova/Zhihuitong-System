@@ -90,9 +90,14 @@ venv/
 .ruff_cache/
 
 # Python agent runtime data & config
-zhihuitong-agent-python/.env
-zhihuitong-agent-python/data/
-zhihuitong-agent-python/.venv/
+agent/.env
+agent/.venv/
+agent/data/
+agent/.mypy_cache/
+agent/.pytest_cache/
+agent/.ruff_cache/
+agent/__pycache__/
+agent/**/__pycache__/
 
 ################
 # Environment / Secrets
@@ -100,6 +105,10 @@ zhihuitong-agent-python/.venv/
 .env
 .env.local
 .env.*.local
+
+# Spring Boot dev/prod 环境配置（包含数据库密码、密钥等敏感信息）
+application-dev.yml
+application-prod.yml
 
 ################
 # Uploads & Runtime

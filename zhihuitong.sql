@@ -11,7 +11,7 @@
  Target Server Version : 90300 (9.3.0)
  File Encoding         : 65001
 
- Date: 10/05/2026 19:09:51
+ Date: 10/05/2026 23:01:29
 */
 
 SET NAMES utf8mb4;
@@ -2941,7 +2941,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 135 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -2979,6 +2979,8 @@ INSERT INTO `sys_logininfor` VALUES (129, 'admin', '127.0.0.1', '内网IP', 'Edg
 INSERT INTO `sys_logininfor` VALUES (130, 'admin', '127.0.0.1', '内网IP', 'Curl 8.19.0', '', '0', '登录成功', '2026-05-10 07:01:08');
 INSERT INTO `sys_logininfor` VALUES (131, 'admin', '127.0.0.1', '内网IP', 'Edge 148', 'Windows >=10', '0', '登录成功', '2026-05-10 09:37:14');
 INSERT INTO `sys_logininfor` VALUES (132, 'admin', '127.0.0.1', '内网IP', 'Edge 148', 'Windows >=10', '0', '登录成功', '2026-05-10 11:06:00');
+INSERT INTO `sys_logininfor` VALUES (133, 'admin', '127.0.0.1', '内网IP', 'Edge 148', 'Windows >=10', '0', '登录成功', '2026-05-10 12:31:54');
+INSERT INTO `sys_logininfor` VALUES (134, 'admin', '127.0.0.1', '内网IP', 'Edge 148', 'Windows >=10', '0', '登录成功', '2026-05-10 15:00:44');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -3222,7 +3224,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 204 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 215 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -3331,6 +3333,17 @@ INSERT INTO `sys_oper_log` VALUES (200, '代码生成', 8, 'com.zhihuitong.gener
 INSERT INTO `sys_oper_log` VALUES (201, 'RAG 索引', 2, 'com.zhihuitong.agent.controller.AgentRagController.indexKnowledge()', 'POST', 1, 'admin', '研发部门', '/agent/rag/index/knowledge', '127.0.0.1', '内网IP', '', '{\"msg\":\"知识库索引完成\",\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"Knowledge indexing complete\\\",\\\"data\\\":{\\\"total\\\":0,\\\"indexed\\\":0,\\\"skipped\\\":0,\\\"errors\\\":0}}\"}', 0, NULL, '2026-05-10 09:37:25', 234);
 INSERT INTO `sys_oper_log` VALUES (202, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/f871625c-2314-42a1-aa92-442342f197e2', '127.0.0.1', '内网IP', '\"f871625c-2314-42a1-aa92-442342f197e2\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 09:37:36', 29);
 INSERT INTO `sys_oper_log` VALUES (203, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/9870ebd7-0aef-4698-acfb-6b55599018eb', '127.0.0.1', '内网IP', '\"9870ebd7-0aef-4698-acfb-6b55599018eb\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 09:46:42', 21);
+INSERT INTO `sys_oper_log` VALUES (204, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/776dbf6b-1db0-410c-ad74-5577dbf9e3e6', '127.0.0.1', '内网IP', '\"776dbf6b-1db0-410c-ad74-5577dbf9e3e6\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 11:53:27', 33);
+INSERT INTO `sys_oper_log` VALUES (205, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/8b50a364-bf08-4ae1-a315-fde45b755497', '127.0.0.1', '内网IP', '\"8b50a364-bf08-4ae1-a315-fde45b755497\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 12:32:59', 33);
+INSERT INTO `sys_oper_log` VALUES (206, 'RAG 索引', 2, 'com.zhihuitong.agent.controller.AgentRagController.indexKnowledge()', 'POST', 1, 'admin', '研发部门', '/agent/rag/index/knowledge', '127.0.0.1', '内网IP', '', '{\"msg\":\"知识库索引完成\",\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"Knowledge indexing complete\\\",\\\"data\\\":{\\\"total\\\":0,\\\"indexed\\\":0,\\\"skipped\\\":0,\\\"errors\\\":0}}\"}', 0, NULL, '2026-05-10 12:39:28', 223);
+INSERT INTO `sys_oper_log` VALUES (207, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/9bed71c3-af54-457f-8af2-f815dc870097', '127.0.0.1', '内网IP', '\"9bed71c3-af54-457f-8af2-f815dc870097\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 12:39:50', 19);
+INSERT INTO `sys_oper_log` VALUES (208, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/0c9a76d9-5718-4776-a400-d65531702086', '127.0.0.1', '内网IP', '\"0c9a76d9-5718-4776-a400-d65531702086\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 12:53:31', 21);
+INSERT INTO `sys_oper_log` VALUES (209, 'RAG 索引', 2, 'com.zhihuitong.agent.controller.AgentRagController.indexKnowledge()', 'POST', 1, 'admin', '研发部门', '/agent/rag/index/knowledge', '127.0.0.1', '内网IP', '', '{\"msg\":\"知识库索引完成\",\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"Knowledge indexing complete\\\",\\\"data\\\":{\\\"total\\\":0,\\\"indexed\\\":0,\\\"skipped\\\":0,\\\"errors\\\":0}}\"}', 0, NULL, '2026-05-10 12:53:39', 96);
+INSERT INTO `sys_oper_log` VALUES (210, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/e5355909-8068-4ce4-a4c7-89b8183da1f4', '127.0.0.1', '内网IP', '\"e5355909-8068-4ce4-a4c7-89b8183da1f4\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 12:59:22', 22);
+INSERT INTO `sys_oper_log` VALUES (211, 'RAG 索引', 2, 'com.zhihuitong.agent.controller.AgentRagController.indexKnowledge()', 'POST', 1, 'admin', '研发部门', '/agent/rag/index/knowledge', '127.0.0.1', '内网IP', '', '{\"msg\":\"知识库索引完成\",\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"Knowledge indexing complete\\\",\\\"data\\\":{\\\"total\\\":0,\\\"indexed\\\":0,\\\"skipped\\\":0,\\\"errors\\\":0}}\"}', 0, NULL, '2026-05-10 13:00:09', 115);
+INSERT INTO `sys_oper_log` VALUES (212, 'RAG 索引', 2, 'com.zhihuitong.agent.controller.AgentRagController.indexKnowledge()', 'POST', 1, 'admin', '研发部门', '/agent/rag/index/knowledge', '127.0.0.1', '内网IP', '', '{\"msg\":\"知识库索引完成\",\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"Knowledge indexing complete\\\",\\\"data\\\":{\\\"total\\\":0,\\\"indexed\\\":0,\\\"skipped\\\":0,\\\"errors\\\":0}}\"}', 0, NULL, '2026-05-10 13:04:11', 90);
+INSERT INTO `sys_oper_log` VALUES (213, 'AI 聊天', 3, 'com.zhihuitong.agent.controller.AgentChatController.deleteMemory()', 'DELETE', 1, 'admin', '研发部门', '/agent/chat/memory/5b70e252-5328-4565-a31d-54bc1ebdd282', '127.0.0.1', '内网IP', '\"5b70e252-5328-4565-a31d-54bc1ebdd282\" ', '{\"msg\":\"{\\\"code\\\":200,\\\"msg\\\":\\\"记忆已清除\\\",\\\"data\\\":null}\",\"code\":200}', 0, NULL, '2026-05-10 13:04:21', 20);
+INSERT INTO `sys_oper_log` VALUES (214, '菜单管理', 3, 'com.zhihuitong.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', '研发部门', '/system/menu/2019', '127.0.0.1', '内网IP', '2019 ', '{\"msg\":\"菜单已分配,不允许删除\",\"code\":601}', 0, NULL, '2026-05-10 14:01:12', 30);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -3543,7 +3556,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '椰子', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2026-05-10 19:05:58', '2026-05-07 14:50:17', 'admin', '2026-05-07 14:50:17', '', '2026-05-08 15:27:56', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '椰子', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2026-05-10 23:00:42', '2026-05-07 14:50:17', 'admin', '2026-05-07 14:50:17', '', '2026-05-08 15:27:56', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2026-05-07 14:50:17', '2026-05-07 14:50:17', 'admin', '2026-05-07 14:50:17', '', NULL, '测试员');
 INSERT INTO `sys_user` VALUES (3, NULL, 'xiaozhi', '小智', '00', '', '', '0', '', '$2a$10$sLIOrBV4/4yCXIqvRC2ezuDVYSXcIQj6y2X4IfuVs6bhyr7d/YAQe', '0', '0', '127.0.0.1', '2026-05-08 14:34:42', NULL, 'admin', '2026-05-08 10:35:44', '', NULL, NULL);
 

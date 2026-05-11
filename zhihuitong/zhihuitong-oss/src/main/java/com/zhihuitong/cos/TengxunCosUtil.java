@@ -6,6 +6,7 @@ import com.qcloud.cos.auth.BasicCOSCredentials;
 import com.qcloud.cos.auth.COSCredentials;
 import com.qcloud.cos.model.ObjectMetadata;
 import com.qcloud.cos.region.Region;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
@@ -18,14 +19,20 @@ import java.util.Date;
 @Component
 public class TengxunCosUtil {
 
-    // 腾讯云配置（请在配置文件中填写真实密钥）
-    private String secretId = "YOUR_SECRET_ID"; // TODO: 从配置文件读取
-    private String secretKey = "YOUR_SECRET_KEY"; // TODO: 从配置文件读取
-    private String region = "ap-beijing";
-    private String bucketName = "moliya-bloger-1423725546";
+    @Value("${cos.secret-id}")
+    private String secretId;
 
-    // CDN 域名（上传后返回这个域名，前端不用动）
-    private String cdnDomain = "https://cdn.moliya.love";
+    @Value("${cos.secret-key}")
+    private String secretKey;
+
+    @Value("${cos.region}")
+    private String region;
+
+    @Value("${cos.bucket-name}")
+    private String bucketName;
+
+    @Value("${cos.cdn-domain}")
+    private String cdnDomain;
 
     // 文件上传
     public String upload(String fileName, InputStream inputStream) {
