@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhihuitong.task.mapper.StuTaskMapper">
+
+    <select id="selectTodoRemindRange" resultMap="StuTaskResult">
+        <include refid="selectStuTaskVo"/>
+        <where>
+            remind_enabled = 1
+            and remind_time is not null
+            and remind_time >= #{begin}
+            and remind_time &lt; #{end}
+            and (email_sent = 0 or email_sent is null)
+            and assignee_email is not null
+            and assignee_email != ''
+        </where>
+    </select>
+    
+    <resultMap type="com.zhihuitong.task.domain.StuTask" id="StuTaskResult">
+        <result property="id"    column="id"    />
+        <result property="studentId"    column="student_id"    />
+        <result property="type"    column="type"    />
+        <result property="title"    column="title"    />
+        <result property="content"    column="content"    />
+        <result property="term"    column="term"    />
+        <result property="courseId"    column="course_id"    />
+        <result property="courseNameSnapshot"    column="course_name_snapshot"    />
+        <result property="priority"    column="priority"    />
+        <result property="status"    column="status"    />
+        <result property="dueTime"    column="due_time"    />
+        <result property="remindEnabled"    column="remind_enabled"    />
+        <result property="remindTime"    column="remind_time"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <!-- 在现有字段映射后面添加 -->
+        <result property="assigneeEmail" column="assignee_email"/>
+        <result property="emailSent" column="email_sent"/>
+    </resultMap>
+
+    <sql id="selectStuTaskVo">
+        select id, student_id, type, title, content, term, course_id, course_name_snapshot, priority, status, due_time, remind_enabled, remind_time, created_at, updated_at,assignee_email, email_sent from stu_task
+    </sql>
+
+    <select id="selectStuTaskList" parameterType="com.zhihuitong.task.domain.StuTask" resultMap="StuTaskResult">
+        <include refid="selectStuTaskVo"/>
+        <where>  
+            <if test="studentId != null "> and student_id = #{studentId}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="title != null  and title != ''"> and title like concat('%', #{title}, '%')</if>
+            <if test="content != null  and content != ''"> and content like concat('%', #{content}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectStuTaskById" parameterType="Long" resultMap="StuTaskResult">
+        <include refid="selectStuTaskVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectUndueTodoCalendar" resultMap="StuTaskResult">
+        <include refid="selectStuTaskVo"/>
+        <where>
+            <if test="studentId != null"> and student_id = #{studentId}</if>
+            and type = 'TODO'
+            and status in ('TODO','DOING')
+            and due_time is not null
+            and due_time >= now()
+            and due_time >= #{begin}
+            and due_time &lt; #{end}
+        </where>
+        order by due_time asc
+    </select>
+
+    <insert id="insertStuTask" parameterType="com.zhihuitong.task.domain.StuTask" useGeneratedKeys="true" keyProperty="id">
+        insert into stu_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">student_id,</if>
+            <if test="type != null and type != ''">type,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="content != null">content,</if>
+            <if test="term != null">term,</if>
+            <if test="courseId != null">course_id,</if>
+            <if test="courseNameSnapshot != null">course_name_snapshot,</if>
+            <if test="priority != null">priority,</if>
+            <if test="status != null">status,</if>
+            <if test="dueTime != null">due_time,</if>
+            <if test="remindEnabled != null">remind_enabled,</if>
+            <if test="remindTime != null">remind_time,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="assigneeEmail != null">assignee_email,</if>
+            <if test="emailSent != null">email_sent,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">#{studentId},</if>
+            <if test="type != null and type != ''">#{type},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="content != null">#{content},</if>
+            <if test="term != null">#{term},</if>
+            <if test="courseId != null">#{courseId},</if>
+            <if test="courseNameSnapshot != null">#{courseNameSnapshot},</if>
+            <if test="priority != null">#{priority},</if>
+            <if test="status != null">#{status},</if>
+            <if test="dueTime != null">#{dueTime},</if>
+            <if test="remindEnabled != null">#{remindEnabled},</if>
+            <if test="remindTime != null">#{remindTime},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="assigneeEmail != null">#{assigneeEmail},</if>
+            <if test="emailSent != null">#{emailSent},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStuTask" parameterType="com.zhihuitong.task.domain.StuTask">
+        update stu_task
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="studentId != null">student_id = #{studentId},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="term != null">term = #{term},</if>
+            <if test="courseId != null">course_id = #{courseId},</if>
+            <if test="courseNameSnapshot != null">course_name_snapshot = #{courseNameSnapshot},</if>
+            <if test="priority != null">priority = #{priority},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="dueTime != null">due_time = #{dueTime},</if>
+            <if test="remindEnabled != null">remind_enabled = #{remindEnabled},</if>
+            <if test="remindTime != null">remind_time = #{remindTime},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="assigneeEmail != null">assignee_email = #{assigneeEmail},</if>
+            <if test="emailSent != null">email_sent = #{emailSent},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <!-- 更新邮件发送状态 -->
+    <update id="updateEmailSentStatus">
+        UPDATE stu_task
+        SET email_sent = 1,
+        update_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteStuTaskById" parameterType="Long">
+        delete from stu_task where id = #{id}
+    </delete>
+
+    <delete id="deleteStuTaskByIds" parameterType="String">
+        delete from stu_task where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
