@@ -1,4 +1,14 @@
+-- 后勤管理目录（顶级目录，ID=2065）
+INSERT INTO `sys_menu` VALUES (2065, '后勤管理', 0, 5, 'logistics', NULL, '', '', 1, 0, 'M', '0', '0', '', 'form', 'admin', sysdate(), '', NULL, '后勤管理目录');
+
 /*Table structure for table `logistics_water` */
+
+SET @OLD_SQL_MODE = '';
+SET @OLD_FOREIGN_KEY_CHECKS = 1;
+SET @OLD_UNIQUE_CHECKS = 1;
+SET @OLD_SQL_NOTES = 0;
+
+
 
 DROP TABLE IF EXISTS `logistics_water`;
 
