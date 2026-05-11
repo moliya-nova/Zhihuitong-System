@@ -53,6 +53,21 @@ spring:
     basename: i18n/messages
   profiles:
     active: dev
+  # 邮箱配置
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 1827191969@qq.com
+    password: rrjkhwnbbyfsdhib
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
   # 文件上传
   servlet:
     multipart:
