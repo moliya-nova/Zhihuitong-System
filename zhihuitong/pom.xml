@@ -192,6 +192,13 @@
                 <version>${zhihuitong.version}</version>
             </dependency>
 
+            <!-- 业务模块-->
+            <dependency>
+                <groupId>com.zhihuitong</groupId>
+                <artifactId>zhihuitong-platform</artifactId>
+                <version>${zhihuitong.version}</version>
+            </dependency>
+
             <!-- AI 代理模块-->
             <dependency>
                 <groupId>com.zhihuitong</groupId>
@@ -202,6 +209,12 @@
             <dependency>
                 <groupId>com.zhihuitong</groupId>
                 <artifactId>zhihuitong-knowledge</artifactId>
+                <version>${zhihuitong.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zhihuitong</groupId>
+                <artifactId>zhihuitong-task</artifactId>
                 <version>${zhihuitong.version}</version>
             </dependency>
 
