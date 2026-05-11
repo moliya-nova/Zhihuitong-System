@@ -218,6 +218,12 @@
                 <version>${zhihuitong.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.zhihuitong</groupId>
+                <artifactId>zhihuitong-student</artifactId>
+                <version>${zhihuitong.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -233,6 +239,7 @@
         <module>zhihuitong-agent</module>
         <module>zhihuitong-knowledge</module>
         <module>zhihuitong-task</module>
+        <module>zhihuitong-student</module>
     </modules>
     <packaging>pom</packaging>
 

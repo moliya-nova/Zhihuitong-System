@@ -176,6 +176,18 @@ export const dynamicRoutes = [
         meta: { title: '修改生成配置', activeMenu: '/tool/gen' }
       }
     ]
+  },
+  {
+    path: '/student',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/student/index.vue'),
+        name: 'Student',
+        meta: { title: '学生信息', icon: 'user' }
+      }
+    ]
   }
 ]
 

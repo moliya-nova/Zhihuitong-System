@@ -36,3 +36,6 @@ export * from "./knowledge/knowledge";
 export * from "./knowledge/type";
 
 export * from "./template/template";
+
+// 学生管理模块
+export * from "./system/student";
